@@ -1,0 +1,22 @@
+<!-- search_results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados da Pesquisa</title>
+</head>
+<body>
+    <h1>Resultados da Pesquisa para '{{ query }}'</h1>
+    <ul>
+        {% for livro in livros %}
+            <li>
+                <h2>{{ livro.titulo }}</h2>
+                <p>Autor: {{ livro.autor }}</p>
+                <img src="{{ livro.img_livro.url }}" alt="{{ livro.titulo }}">
+                <!-- Adicione outros campos do livro, se necessário -->
+            </li>
+        {% empty %}
+            <p>Nenhum resultado encontrado para '{{ query }}'</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

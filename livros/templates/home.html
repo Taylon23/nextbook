@@ -1,0 +1,35 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Livros</title>
+</head>
+<body>
+    <form action="{% url 'search_book' %}" method="GET">
+        <input type="text" name="q" placeholder="Pesquisar Livros" required>
+        <button type="submit">Pesquisar</button>
+    </form>
+    <form action="{% url 'search_book' %}" method="GET">
+        <select name="categoria" required>
+            <option value="">Selecione uma categoria</option>
+            {% for categoria_livros in categorias %}
+                <option value="{{  categoria_livros.id }}">{{  categoria_livros.categoria }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filtrar por Categoria</button>
+    </form>
+    <br>
+    <h1>Lista de Livros</h1>
+    <ul>
+        {% for livro in livros %}
+            <li>
+                <h2>{{ livro.titulo }}</h2>
+                <p>Autor: {{ livro.autor }}</p>
+                <!-- Exibindo a imagem -->
+                <img src="{{ livro.img_livro.url }}" alt="{{ livro.titulo }}">
+                <!-- Adicione aqui os outros campos que deseja exibir -->
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
