@@ -1,0 +1,219 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  background-color: #fafafa;
+}
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: #007a7c;
+}
+.NavBar h1 {
+  color: #fff;
+}
+.form-input-topo {
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+.form-input-topo input[type="text"] {
+  flex: 1; /* Ocupar todo o espaço disponível */
+  height: 2.5em;
+  border-radius: 0.3em 0 0 0.3em;
+  outline: none;
+  border: 0.06em solid #ccc; /* Adicionar uma borda para separar visualmente */
+  border-right: transparent;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+#search-button {
+  height: 2.5em;
+  border-radius: 0 0.3em 0.3em 0;
+  padding: 0.5em;
+  font-size: 1em;
+  background: #eee;
+  border: 0.06em solid #ccc;
+  border-left: transparent;
+  cursor: pointer;
+}
+
+#search-button i {
+  font-size: 1.2em; /* Tamanho do ícone */
+}
+.ul-menu-topo {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.ul-menu-topo li {
+  padding: 0.2em 0.3em;
+  cursor: pointer;
+}
+.ul-menu-topo li,
+a {
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.ul-menu-topo li a:hover {
+  color: #ddd;
+}
+/* Estilos para o submenu */
+.submenu-categorias {
+  display: none; /* Esconder o submenu por padrão */
+  position: absolute;
+  right: 7%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mostrar o submenu ao passar o mouse */
+.ul-menu-topo li:hover .submenu-categorias {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Estilo para os itens do submenu */
+.submenu-categorias li {
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em;
+  padding: 0.5em;
+  white-space: nowrap;
+}
+
+.submenu-categorias li:hover {
+  color: #007a7c;
+  background-color: #ddd;
+}
+.submenu-categorias a li {
+  color: #000;
+}
+.submenu-categorias li:hover {
+  color: #000;
+  color: #007a7c;
+}
+.menu-responsive {
+  display: none;
+}
+.form-input-topo-responsive {
+  display: none;
+}
+main {
+  min-height: 80vh;
+}
+
+#Rodape {
+  background-color: #007a7c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.2em;
+}
+#Rodape p {
+  margin: 0.5em 0;
+  text-align: center;
+}
+#Rodape a {
+  color: #fff;
+  transition: text-decoration 0.3s ease-in;
+}
+#Rodape a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .ul-menu-topo {
+    display: none;
+  }
+  .NavBar form {
+    display: none;
+  }
+  .menu-responsive {
+    display: block;
+  }
+  #menu-bars {
+    font-size: 1.5em;
+    color: #fff;
+  }
+  .submenu-responsive {
+    display: none; /* Esconder o submenu por padrão */
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    top: 12%;
+    right: 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Mostrar o submenu ao passar o mouse */
+  li:hover .submenu-responsive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5em 0;
+  }
+
+  /* Estilo para os itens do submenu */
+  .submenu-responsive a {
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0.5em;
+    width: 100%;
+  }
+
+  /* Estilo quando passa o mouse nos itens do submenu */
+  #menu-bars li:hover {
+    color: #007a7c;
+    /* Por exemplo, mudança de cor ao passar o mouse */
+  }
+  .submenu-responsive li {
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+  }
+  .submenu-responsive li:hover .submenu-categorias {
+   display: flex;
+   right: 0;
+   align-items: center;
+   flex-wrap: wrap;
+   width: 100%;
+  }
+  .submenu-categorias li{
+   padding: 0;
+  }
+  .form-input-topo-responsive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: .5em;
+    width: 100%;
+  }
+  .form-input-topo-responsive input[type="text"] {
+    height: 2.5em;
+    width: 60%;
+    border-radius: 0.3em 0 0 0.3em;
+    outline: none;
+    border: 0.06em solid #ccc;
+    border-right: transparent;
+    padding: 0.5em;
+    font-size: 1em;
+  }
+}

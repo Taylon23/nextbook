@@ -7,6 +7,11 @@ class Categoria(models.Model):
     def __str__(self):
         return f'{self.categoria}'
 
+    def save(self, *args, **kwargs):
+        # Garantir que a primeira letra da categoria seja maiúscula
+        self.categoria = self.categoria.capitalize()
+        super(Categoria, self).save(*args, **kwargs)
+
 
 class Livro(models.Model):
     img_livro = models.ImageField(
@@ -18,10 +23,10 @@ class Livro(models.Model):
     editora = models.CharField(max_length=50)
     ano = models.IntegerField()
     volume = models.IntegerField()
-    quantidade_exemplares = models.IntegerField(verbose_name='Livros disponíveis')
+    quantidade_exemplares = models.IntegerField(
+        verbose_name='Livros disponíveis')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     classificacao = models.IntegerField(verbose_name='classificação')
-
 
     def __str__(self):
         return f'Livro: {self.titulo} - Autor: {self.autor}  - Volume: {self.editora}'

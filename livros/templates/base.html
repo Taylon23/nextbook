@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,100 @@
     {% block extra_head %}
     {% endblock %}
 </head>
+
 <body>
-    
+    {% block navbar %}
+    <header>
+        <nav class="NavBar">
+            <h1>logomarca</h1>
+            <form action="{% url 'search_book' %}" method="GET" class="form-input-topo">
+                <input type="text" list="livros" id="buscar-livro" placeholder="Pesquisar Livros" required>
+                <datalist id="livros">
+                    {% for livro in livros %}
+                    <option value="{{ livro.titulo }}">
+                        {% empty %}
+                    <option value="Sem livro">
+                        {% endfor %}
+                </datalist>
+                <button type="submit" id="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <ul class="ul-menu-topo">
+                <li><a href=""><i class="fas fa-filter"></i> Categorias</a>
+                    <ul class="submenu-categorias">
+                        {% for categoria in categorias|dictsort:"categoria" %}
+                        <a href="/search_book/?categoria={{ categoria.id }}">
+                            <li>{{ categoria.categoria }}</li>
+                        </a>
+                        {% empty %}
+                        <li>Não tem categorias</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href=""><i class="fas fa-heart"></i>
+                        Meus favoritos</a></li>
+                <li><a href=""><i class="fas fa-user"></i>
+                        Logar</a></li>
+            </ul>
+            <ul class="menu-responsive">
+                <li id="menu-bars"><i class="fas fa-bars"></i>
+                    <ul class="submenu-responsive">
+                        <li><i class="fas fa-filter"></i> Categorias
+                            <ul class="submenu-categorias">
+                                {% for categoria in categorias|dictsort:"categoria" %}
+                                <a href="/search_book/?categoria={{ categoria.id }}">
+                                    <li>{{ categoria.categoria }}</li>
+                                </a>
+                                {% empty %}
+                                <li>Não tem categorias</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <a href="">
+                            <li><i class="fas fa-heart"></i> Meus favoritos</li>
+                        </a>
+                        <a href="">
+                            <li><i class="fas fa-user"></i> Logar</li>
+                        </a>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <form action="{% url 'search_book' %}" method="GET" class="form-input-topo-responsive">
+            <input type="text" id="buscar-livro" placeholder="Pesquisar Livros" required>
+            <datalist id="livros">
+                {% for livro in livros %}
+                <option value="{{ livro.titulo }}">
+                    {% empty %}
+                <option value="Sem livro">
+                    {% endfor %}
+            </datalist>
+            <button type="submit" id="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </header>
+    {% endblock %}
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    {% block footer %}
+    <footer id="Rodape">
+        <p>&copy; Todos os direitos reservados para Nextbook</p>
+        <p>
+            <a href="#" class="link_footer">Política de privacidade </a>|
+            <a href="#" class="link_footer">Termos de uso do website </a>|
+            <a href="#" class="link_footer">Mapa do site</a>
+        </p>
+    </footer>
+    {% endblock %}
 </body>
+
+{% block scripts %}
+  
+{% endblock %}
+
 </html>

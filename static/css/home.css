@@ -1,0 +1,68 @@
+.section-em-alta h1 {
+  margin: 0.1em;
+}
+.title-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+.title-section a {
+  color: #007a7c;
+}
+.title-section a:hover {
+  text-decoration: underline;
+}
+.title-section i {
+  color: #007a7c;
+}
+.content-livro {
+  display: flex;
+  gap: 0 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5em;
+}
+.livro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5em 0;
+  margin: 0.5em 0;
+}
+.livro h3 {
+  white-space: nowrap;
+}
+.livro img {
+  border-radius: 0.5em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 15em;
+  height: 15em;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.livro img:hover {
+  transform: scale(1.02);
+  filter: brightness(80%);
+}
+
+@media (max-width: 768px) {
+  .content-livro {
+    overflow: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    /* Para navegadores modernos */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

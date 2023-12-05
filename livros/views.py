@@ -9,6 +9,11 @@ def home(request):
     categorias = models.Categoria.objects.all()
     return render(request,'home.html',{'livros':livros,'categorias': categorias})
 
+def base(request):
+    livros = models.Livro.objects.all()
+    categorias = models.Categoria.objects.all()
+    return render(request,'home.html',{'livros':livros,'categorias': categorias})
+
 def search_book(request):
     query = request.GET.get('q')
     categoria_id = request.GET.get('categoria')
