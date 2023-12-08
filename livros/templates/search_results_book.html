@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Home</title>
+{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="section-em-alta">
+  <div class="title-section">
+    {% if livros %}
+    <h1>Livros encontrados</h1>
+    {% else %}
+    <h1>Sem resultados</h1>
+    {% endif %}
+  </div>
+  <div class="content-livro">
+    {% for livro in livros %}
+    <div class="livro">
+      <img src="{{ livro.img_livro.url }}" alt="{{ livro.titulo }}">
+      <h3>{{ livro.titulo }}</h3>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

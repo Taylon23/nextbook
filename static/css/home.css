@@ -25,6 +25,9 @@
   justify-content: space-evenly;
   padding: 0.5em;
 }
+.content-livro a{
+  color: #000;
+}
 .livro {
   display: flex;
   justify-content: center;
@@ -44,7 +47,6 @@
   height: 15em;
   object-fit: cover;
   transition: all 0.3s ease-in-out;
-  cursor: pointer;
 }
 .livro img:hover {
   transform: scale(1.02);

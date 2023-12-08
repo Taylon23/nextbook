@@ -26,9 +26,9 @@
     {% block navbar %}
     <header>
         <nav class="NavBar">
-            <h1>logomarca</h1>
+            <a href="{% url 'home' %}"><h1>Logomarca</h1></a>
             <form action="{% url 'search_book' %}" method="GET" class="form-input-topo">
-                <input type="text" list="livros" id="buscar-livro" placeholder="Pesquisar Livros" required>
+                <input type="text" list="livros" name="q" id="buscar-livro" placeholder="Pesquisar Livros" required>
                 <datalist id="livros">
                     {% for livro in livros %}
                     <option value="{{ livro.titulo }}">

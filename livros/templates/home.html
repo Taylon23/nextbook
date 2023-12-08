@@ -14,11 +14,13 @@
     <h3><a href="#"><i class="fas fa-plus"></i> Ver mais</a></h3>
   </div>
   <div class="content-livro">
-    {% for livro in livros|slice:"8" %}
-    <div class="livro">
-      <img src="{{ livro.img_livro.url }}" alt="{{ livro.titulo }}">
-      <h3>{{ livro.titulo }}</h3>
-    </div>
+    {% for livro in em_alta|slice:"8" %}
+    <a href="{% url 'profile_book' livro.pk %}">
+      <div class="livro">
+        <img src="{{ livro.img_livro.url }}" alt="{{ livro.titulo }}">
+        <h3>{{ livro.titulo }}</h3>
+      </div>
+    </a>
     {% endfor %}
   </div>
 </section>
