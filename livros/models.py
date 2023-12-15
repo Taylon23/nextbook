@@ -32,6 +32,7 @@ class Livro(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     classificacao = models.IntegerField(verbose_name='classificação')
     sob_demanda = models.BooleanField(default=False)
+    favoritado = models.BooleanField(default=False)
 
     def __str__(self):
         return f'Livro: {self.titulo} - Autor: {self.autor}  - Volume: {self.editora}'

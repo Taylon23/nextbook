@@ -2,7 +2,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5em;
+  padding: .8em 0.5em;
 }
 .content-livro {
   display: flex;
@@ -13,6 +13,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.3em 0;
+  width: 35%;
   padding: 0.8em;
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 0.5em;
@@ -26,7 +27,7 @@ main {
   align-items: center;
   gap: 0 0.3em;
   justify-content: center;
-  background-color: #007bff;
+  background-color: #1a1a1a;
   color: #fff;
   padding: 0.9375em 1.5625em;
   border: none;
@@ -38,6 +39,7 @@ main {
   transition: all 0.4s ease-in-out;
 }
 .info-livro img {
+  width: 100%;
   border-radius: 0.5em;
   transition: all 0.4s ease-in-out;
 }

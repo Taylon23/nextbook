@@ -16,7 +16,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1em;
-  background-color: #007a7c;
+  background-color: #1a1a1a;
 }
 .NavBar h1 {
   color: #fff;
@@ -115,7 +115,7 @@ main {
 }
 
 #Rodape {
-  background-color: #007a7c;
+  background-color: #1a1a1a;
   color: #fff;
   display: flex;
   align-items: center;
@@ -190,20 +190,20 @@ main {
     font-size: 14px;
   }
   .submenu-responsive li:hover .submenu-categorias {
-   display: flex;
-   right: 0;
-   align-items: center;
-   flex-wrap: wrap;
-   width: 100%;
+    display: flex;
+    right: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
   }
-  .submenu-categorias li{
-   padding: 0;
+  .submenu-categorias li {
+    padding: 0;
   }
   .form-input-topo-responsive {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: .5em;
+    margin-top: 0.5em;
     width: 100%;
   }
   .form-input-topo-responsive input[type="text"] {

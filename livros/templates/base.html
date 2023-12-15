@@ -26,7 +26,9 @@
     {% block navbar %}
     <header>
         <nav class="NavBar">
-            <a href="{% url 'home' %}"><h1>Logomarca</h1></a>
+            <a href="{% url 'home' %}">
+                <h1>Logomarca</h1>
+            </a>
             <form action="{% url 'search_book' %}" method="GET" class="form-input-topo">
                 <input type="text" list="livros" name="q" id="buscar-livro" placeholder="Pesquisar Livros" required>
                 <datalist id="livros">
@@ -52,10 +54,14 @@
                         {% endfor %}
                     </ul>
                 </li>
-                <li><a href=""><i class="fas fa-heart"></i>
+                <li><a href="{% url 'meus-livros-favoritos' %}"><i class="fas fa-heart"></i>
                         Meus favoritos</a></li>
-                <li><a href=""><i class="fas fa-user"></i>
-                        Logar</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" id="logout"><i class="fas fa-sign-out-alt"></i> Encerra sessão</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}"><i class="fas fa-user"></i> Logar</a></li>
+
+                {% endif %}
             </ul>
             <ul class="menu-responsive">
                 <li id="menu-bars"><i class="fas fa-bars"></i>
@@ -71,18 +77,24 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                        <a href="">
+                        <a href="{% url 'meus-livros-favoritos' %}">
                             <li><i class="fas fa-heart"></i> Meus favoritos</li>
                         </a>
-                        <a href="">
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout' %}" id="logout">
+                            <li><i class="fas fa-sign-out-alt"></i> Encerra sessão</li>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'login' %}">
                             <li><i class="fas fa-user"></i> Logar</li>
                         </a>
+                        {% endif %}
                     </ul>
                 </li>
             </ul>
         </nav>
         <form action="{% url 'search_book' %}" method="GET" class="form-input-topo-responsive">
-            <input type="text" id="buscar-livro" placeholder="Pesquisar Livros" required>
+            <input type="text" id="buscar-livro" name="q" placeholder="Pesquisar Livros" required>
             <datalist id="livros">
                 {% for livro in livros %}
                 <option value="{{ livro.titulo }}">
@@ -112,9 +124,8 @@
     </footer>
     {% endblock %}
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% block scripts %}
-  
 {% endblock %}
 
 </html>
